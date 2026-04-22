@@ -53,6 +53,11 @@ class ProjectService {
                 const projects = await this.fetchProjects();
                 let newCache = {};
                 for (const project of projects) {
+                    const versions = await this.getDataFromProjectVersion(project.id);
+                    console.log('versions',versions[0].version_number); 
+                    console.log('versions',versions[0].changelog); 
+                    console.log('url',`https://modrinth.com/modpack/${project.slug}`);
+                    
                     newCache[project.id] = project.updated;
                     console.log(`Verificando atualizações para ${project.title}`);
                     
@@ -60,13 +65,15 @@ class ProjectService {
                     // Novo projeto
                     if (!oldCache[project.id]) {
                         console.log('Novo');
-                        await this.sendDiscord(`🆕 Novo modpack: ${project.title}`);
+                        const message = this.prepareMessage(project, versions[0], 'Novo');
+                        await this.sendDiscord(message); 
                     }
                     
                     // Atualização
                     else if (oldCache[project.id] !== project.updated) {
                         console.log('Atualização');
-                        await this.sendDiscord(`🔄 Modpack atualizado: ${project.title}`);
+                        const message = this.prepareMessage(project, versions[0], 'Update');
+                        await this.sendDiscord(message); 
                     }
                 }
                 
@@ -74,7 +81,8 @@ class ProjectService {
                 for (const id in oldCache) {
                     if (!newCache[id]) { 
                         console.log(`Removido: ${id}`);
-                        await this.sendDiscord(`❌ Modpack removido: ${id}`);
+                        const message = this.prepareMessage(project, versions[0], 'Removed.');
+                        await this.sendDiscord(message); 
                     }
                 }
                 
@@ -92,12 +100,20 @@ class ProjectService {
     sendDiscord(message) {
         return new Promise(async(resolve, reject) => {
             
-            httpDiscord.post("/", {
+            httpDiscord.post("", {
                 content: message
             }).then(() => resolve({ success: true }))
             .catch(err => reject(err));
         });
     }
+
+    prepareMessage(project, version, type) {
+        return `[${type}] New update of the modpack: ${project.title}\n\n
+🆕 New version of the modpack: ${project.title}\n
+Version: ${version.version_number}\n
+Changelog: ${version.changelog}\n
+URL: https://modrinth.com/modpack/${project.slug}`;
+    }   
     
 }
 
