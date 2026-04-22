@@ -1,6 +1,7 @@
 const fs = require("fs");
+const path = require("path");
+const CACHE_FILE = path.resolve(__dirname, "..","..","public","cache.json");
 
-const CACHE_FILE = "./cache.json";
 // Carregar cache
 const loadCache = () => {
   if (!fs.existsSync(CACHE_FILE)) return {};
