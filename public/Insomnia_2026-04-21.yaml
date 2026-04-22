@@ -1,0 +1,333 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1719233702113
+  modified: 1719233702113
+  description: ""
+collection:
+  - url: https://discord.com/api/webhooks/1496263878924042352/pBU_4WeRnyQ4qMX7fTAxs_A4TmwiQQBE46FjXHlF1-Ue6ObRueFBB-qm2LvRTvZlzkXP
+    name: discord
+    meta:
+      id: req_77c694c2d0bd4b25951ef86bac48eefb
+      created: 1776809100501
+      modified: 1776810031981
+      isPrivate: false
+      description: ""
+      sortKey: -1776809100501
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {  
+        	"content": "Mensagem simples de texto",
+          "username": "Nome do Bot"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3001/auth
+    name: auth
+    meta:
+      id: req_be1276d312e147ae9fb71cb1758b6527
+      created: 1776815577280
+      modified: 1776818495129
+      isPrivate: false
+      description: ""
+      sortKey: -1776815577280
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "betinho@gmail.com",
+        	"password": "123456789"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.6.1
+    scripts:
+      afterResponse: |-
+        
+        // Salva o token em uma variável de ambiente
+        const response = insomnia.response;
+        const data = JSON.parse(response.body);
+
+        insomnia.environment.set('token', data.token);
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3001
+    name: init
+    meta:
+      id: req_e8f9c145c9bd45958efe9e2584c2bb02
+      created: 1776816537932
+      modified: 1776816571715
+      isPrivate: false
+      description: ""
+      sortKey: -1776816537932
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: modrinth
+    meta:
+      id: fld_8c20cb1d803f4bb998844acb84c965cd
+      created: 1776805043747
+      modified: 1776809522896
+      sortKey: -1776805043747
+      description: ""
+    children:
+      - url: https://api.modrinth.com/v2/project/test-project-cbcarlos/version
+        name: version
+        meta:
+          id: req_93b88e5b5b2f4a6aaf6dc5dd489dc3f1
+          created: 1776805046970
+          modified: 1776805450693
+          isPrivate: false
+          description: ""
+          sortKey: -1776805046970
+        method: GET
+        parameters:
+          - id: pair_8d7e7a50b3ec49019bec7c61140826ac
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_837d48ed16a643bf98c9f6d0b79de9d6
+          - id: pair_1ab0bf7d900b46cabc96c2b7a6ab7d72
+            name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/project/test-project-cbcarlos
+        name: project
+        meta:
+          id: req_66c1ab38726e4f0eb14c6e570496f73b
+          created: 1776805457865
+          modified: 1776814762689
+          isPrivate: false
+          description: ""
+          sortKey: -1767989564277
+        method: GET
+        parameters:
+          - id: pair_8d7e7a50b3ec49019bec7c61140826ac
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_837d48ed16a643bf98c9f6d0b79de9d6
+          - id: pair_1ab0bf7d900b46cabc96c2b7a6ab7d72
+            name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/projects?ids=["test-project-cbcarlos"]
+        name: project list
+        meta:
+          id: req_5fdbef9b927f43248126a87a7441df7b
+          created: 1776805634044
+          modified: 1776806273832
+          isPrivate: false
+          description: ""
+          sortKey: -1763581822930.5
+        method: GET
+        parameters:
+          - id: pair_2807eb95ea054f0c9f96e72310de30eb
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_837d48ed16a643bf98c9f6d0b79de9d6
+          - id: pair_1ab0bf7d900b46cabc96c2b7a6ab7d72
+            name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/projects_random
+        name: projetos aleatórios
+        meta:
+          id: req_b800b0124fd041f69138c10142c73f8b
+          created: 1776810374853
+          modified: 1776810444101
+          isPrivate: false
+          description: ""
+          sortKey: -1761377952257.25
+        method: GET
+        parameters:
+          - id: pair_2807eb95ea054f0c9f96e72310de30eb
+            name: count
+            value: "10"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_837d48ed16a643bf98c9f6d0b79de9d6
+          - id: pair_1ab0bf7d900b46cabc96c2b7a6ab7d72
+            name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/modrinth/projects
+        name: local-project
+        meta:
+          id: req_ca5f9f4aa12c45cf95653c837bd2c0ef
+          created: 1776814766340
+          modified: 1776818188838
+          isPrivate: false
+          description: ""
+          sortKey: -1776814766340
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"ids": [
+            		"test-project-cbcarlos"
+            	]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_1b88881df75b4a8fa01000ec25399c86
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_c2361c6dd9c1438bac101537952678ab
+          - id: pair_e3471e45c6204b47a2025a6349d624ff
+            name: x-access-token
+            value: "{{token}}"
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/modrinth/project/test-project-cbcarlos/version
+        name: local-version
+        meta:
+          id: req_4b5023a8f7c74000af573de922c2fa1f
+          created: 1776818515775
+          modified: 1776818763814
+          isPrivate: false
+          description: ""
+          sortKey: -1776811933420.5
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_1b88881df75b4a8fa01000ec25399c86
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_c2361c6dd9c1438bac101537952678ab
+          - id: pair_e3471e45c6204b47a2025a6349d624ff
+            name: x-access-token
+            value: "{{token}}"
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1776805019112
+    modified: 1776818496091
+  cookies:
+    - id: 1953642e-a39f-44f5-b1d3-4b73034b1972
+      key: _cfuvid
+      value: 8lvYzwuSnMb_4HlXuLd1Q9bIuTl4B8fOqBMgarxZ6tk-1776805235.714686-1.0.1.1-skKxSbkLAyvAvDHA4dGE6alaoaFRJrGFz9y8vJSov3U
+      domain: modrinth.com
+      path: /
+      secure: true
+      httpOnly: true
+      creation: 2026-04-21T21:00:34.193Z
+      lastAccessed: 2026-04-21T21:00:34.193Z
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1776805019108
+    modified: 1776818496094
+    isPrivate: false
+  data:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldGluaG9AZ21haWwuY29tIiwiaWF0IjoxNzc2ODE4NDk2LCJleHAiOjE3NzY5MDQ4OTZ9.4mQDfh6dZmcD8ILdyo9l6wE0QybKL3-0vqXuXLnfX4w
