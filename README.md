@@ -29,13 +29,13 @@ Execute o comando
 npm i 
 ```
 
-Crie o arquivo chamado .env
+Crie o arquivo chamado `.env`
 
-Copie as informações do arquivo .env.example
+Copie as informações do arquivo `.env.example`
 
 Ajuste as variáveis conforme o seu projeto
 
-Para gerar um hash md5 para o seu e-mail acesse o siste [md5hashgenerator](https://www.md5hashgenerator.com/)
+Para gerar um hash md5 para o seu e-mail acesse o site [md5hashgenerator](https://www.md5hashgenerator.com/)
 
 Coloque o seu e-mail clique em gerar ou use alguma Inteligência Artificial para gerar o hash md5 de seu email
 
