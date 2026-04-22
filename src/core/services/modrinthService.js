@@ -108,8 +108,8 @@ class ProjectService {
     }
 
     prepareMessage(project, version, type) {
-        return `[${type}] New update of the modpack: ${project.title}\n\n
-🆕 New version of the modpack: ${project.title}\n
+        return `[${type}] New update of the modpack: ${project.title}\n
+🆕 @everyone New version of the modpack: ${project.title}\n
 Version: ${version.version_number}\n
 Changelog: ${version.changelog}\n
 URL: https://modrinth.com/modpack/${project.slug}`;
