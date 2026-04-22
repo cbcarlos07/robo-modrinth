@@ -53,20 +53,23 @@ class ProjectService {
                 
                 // Novo projeto
                 if (!oldCache[project.id]) {
-                  //await this.sendDiscord(`🆕 Novo modpack: ${project.title}`);
+                    console.log('Novo');
+                    await this.sendDiscord(`🆕 Novo modpack: ${project.title}`);
                 }
                 
                 // // Atualização
-                // else if (oldCache[project.id] !== project.updated) {
-                //   await this.sendDiscord(`🔄 Modpack atualizado: ${project.title}`);
-                // }
+                 else if (oldCache[project.id] !== project.updated) {
+                    console.log('Atualização');
+                    await this.sendDiscord(`🔄 Modpack atualizado: ${project.title}`);
+                 }
             }
             
             //   // Removidos
             for (const id in oldCache) {
-            // if (!newCache[id]) { 
-            //   await this.sendDiscord(`❌ Modpack removido: ${id}`);
-            // }
+                if (!newCache[id]) { 
+                    await this.sendDiscord(`❌ Modpack removido: ${id}`);
+                    console.log(`Removido: ${id}`);
+                }
             }
 
             saveCache(newCache);
