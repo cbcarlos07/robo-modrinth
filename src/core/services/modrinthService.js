@@ -1,6 +1,8 @@
 const { tr } = require("date-fns/locale");
 const { httpModrinth, httpDiscord } = require("../../config/http");
+
 const { saveCache, loadCache } = require("../../utils/cache");
+const discordService = require("./discordService");
 const PROJECT = process.env.PROJECTS_MODRINTH;
 class ProjectService {
     
@@ -37,6 +39,8 @@ class ProjectService {
     
     fetchProjects(){
         return new Promise(async(resolve, reject) => {
+            console.log('PROJECT',PROJECT);
+            
             try {
                 const res = await this.getDataFromMultipleProjects( JSON.parse( PROJECT ) );
                 resolve(res);
@@ -45,15 +49,31 @@ class ProjectService {
             }
         });
     }
-    testMessage(){
+
+    prepareObject(){
         return new Promise(async(resolve, reject) => {
             const projects = await this.fetchProjects();
             const versions = await this.getDataFromProjectVersion(projects[0].id);  
-            const message = this.prepareMessage(projects[0],versions[0].version_number, 'New');
-            await this.sendDiscord(message); 
+            const message = this.prepareMessage(projects[0],versions[0].version_number, 'New');   
             resolve(message);
         });
     }
+
+    testMessage(){
+        return new Promise(async(resolve, reject) => {
+            const message = await this.prepareObject()
+            await discordService.sendDiscord(message); 
+            resolve(message);
+        });
+    }
+    
+    generateMessage() {
+        return new Promise(async (resolve, reject) => {
+            const message = await this.prepareObject()
+            resolve(message);
+        })
+    }
+
     checkUpdates() {
         return new Promise(async(resolve, reject) => {
             const oldCache = loadCache();
@@ -74,14 +94,14 @@ class ProjectService {
                     if (!oldCache[project.id]) {
                         console.log('Novo');
                         const message = this.prepareMessage(project, versions[0], 'New');
-                        await this.sendDiscord(message); 
+                        await discordService.sendDiscord(message); 
                     }
                     
                     // Atualização
                     else if (oldCache[project.id] !== project.updated) {
                         console.log('Atualização');
                         const message = this.prepareMessage(project, versions[0], 'Update');
-                        await this.sendDiscord(message); 
+                        await discordService.sendDiscord(message); 
                     }
                 }
                 
@@ -90,7 +110,7 @@ class ProjectService {
                     if (!newCache[id]) { 
                         console.log(`Removido: ${id}`);
                         const message = this.prepareMessage(project, versions[0], 'Removed.');
-                        await this.sendDiscord(message); 
+                        await discordService.sendDiscord(message); 
                     }
                 }
                 
@@ -105,18 +125,10 @@ class ProjectService {
         });
     }
     
-    sendDiscord(message) {
-        return new Promise(async(resolve, reject) => {
-            
-            httpDiscord.post("", {
-                content: message
-            }).then(() => resolve({ success: true }))
-            .catch(err => reject(err));
-        });
-    }
+   
 
     prepareMessage(project, version, type) {
-        return `> [${type}] New update of the modpack: ${project.title}\n
+        return `> [${type}] New update of the modpack: ${project.title}
 🆕 @everyone New version of the modpack: ${project.title}\n
 **Version**: ${version.version_number}\n
 **Changelog**:\n${version.changelog}\n

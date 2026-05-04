@@ -35,11 +35,15 @@ Copie as informações do arquivo `.env.example`
 
 Ajuste as variáveis conforme o seu projeto
 
-Para gerar um hash md5 para o seu e-mail acesse o site [md5hashgenerator](https://www.md5hashgenerator.com/)
+Para gerar um hash md5 para a sua senha, acesse o site [md5hashgenerator](https://www.md5hashgenerator.com/)
 
-Coloque o seu e-mail clique em gerar ou use alguma Inteligência Artificial para gerar o hash md5 de seu email
+Coloque a sua senha clique em gerar ou use alguma Inteligência Artificial para gerar o hash md5 de sua senha
 
-Após gerado o hash do seu e-mail, coloque-o na variável `DEFAULT_EMAIL` dentro do arquivo `.env`
+Após gerado o hash de sua senha, coloque-o na variável `DEFAULT_PWD` dentro do arquivo `.env`, ficando mais ou menos assim:
+
+```
+DEFAULT_PWD=25f9e794323b453885f5181f1b624d0b
+```
 
 A url do discord é essa de exemplo:
 https://discord.com/api/webhooks/12334556678/pBU_4WeRnyQ4qMX7fTAxs_A4TmwiQQBE46FjXHlF1-Ue6ObRueFBB-qm2LvRTvZli766P
@@ -50,6 +54,13 @@ Pegue somente após webhooks, por exemplo:
 ```
 
 Ou seja, somente a parte final
+
+E coloque na variável `WEBHOOK_DISCORD` ficando mais ou menos assim:
+
+```
+WEBHOOK_DISCORD=12334556678/pBU_4WeRnyQ4qMX7fTAxs_A4TmwiQQBE46FjXHlF1-Ue6ObRueFBB-qm2LvRTvZli766P
+```
+
 
 
 ## Execute o projeto

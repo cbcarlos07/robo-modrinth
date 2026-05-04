@@ -10,10 +10,11 @@ class ModrinthRouter extends BaseRouter{
     }
 
     init(){
-        this.router.get(`${this.prefix}/project/:project`, (req, res) => this.controller.getDataFromProject(req, res));
-        this.router.patch(`${this.prefix}/projects`, (req, res) => this.controller.getDataFromMultipleProjects(req, res));
-        this.router.get(`${this.prefix}/project/:project/version`, (req, res) => this.controller.getDataFromProjectVersion(req, res));
+        this.router.get(`${this.prefix}/project/:project`, this.controller.getDataFromProject.bind(this.controller));
+        this.router.patch(`${this.prefix}/projects`, this.controller.getDataFromMultipleProjects.bind(this.controller));
+        this.router.get(`${this.prefix}/project/:project/version`, this.controller.getDataFromProjectVersion.bind(this.controller));
         this.router.get(`${this.prefix}/check-updates`, this.controller.checkUpdates.bind(this.controller));
+        this.router.get(`${this.prefix}/generate-message`, this.controller.generateMessage.bind(this.controller));
         return this.router
     }
 }

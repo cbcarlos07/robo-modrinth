@@ -9,9 +9,9 @@ class UserService {
     
     auth ( data ) {
         return new Promise(async(resolve, reject)=>{            
-            const { email } = data
+            const { email, password } = data
             
-            if( md5(email) === DEFAULT_EMAIL && data.password === DEFAULT_PWD ){
+            if( email === DEFAULT_EMAIL && md5(password) === DEFAULT_PWD ){
                 const token = jwt.sign( {email}, JWT_SECRET, { expiresIn: 60 * 60 * 24 }  )
                 resolve({statusCode: 200, status: 'success', data: {email}, token, refreshToken: token, msg: 'Login bem-sucedido'})
                 

@@ -2,7 +2,7 @@
 const axios = require("axios");
 const https = require('https');
 
-const {TOKEN_MODRINTH, WEBHOOK_DISCORD} = process.env;
+const {TOKEN_MODRINTH} = process.env;
 
 
 const httpModrinth = axios.create({
@@ -15,9 +15,9 @@ const httpModrinth = axios.create({
     'Authorization': TOKEN_MODRINTH
   }
 });
-console.log( `https://discord.com/api/webhooks/${WEBHOOK_DISCORD}`);
+
 const httpDiscord = axios.create({
-  baseURL: `https://discord.com/api/webhooks/${WEBHOOK_DISCORD}`,
+  baseURL: `https://discord.com/api/webhooks`,
   httpsAgent: new https.Agent({
     rejectUnauthorized: true
   }),
