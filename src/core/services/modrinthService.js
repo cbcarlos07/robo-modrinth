@@ -45,7 +45,15 @@ class ProjectService {
             }
         });
     }
-    
+    testMessage(){
+        return new Promise(async(resolve, reject) => {
+            const projects = await this.fetchProjects();
+            const versions = await this.getDataFromProjectVersion(projects[0].id);  
+            const message = this.prepareMessage(projects[0],versions[0].version_number, 'New');
+            await this.sendDiscord(message); 
+            resolve(message);
+        });
+    }
     checkUpdates() {
         return new Promise(async(resolve, reject) => {
             const oldCache = loadCache();
@@ -65,7 +73,7 @@ class ProjectService {
                     // Novo projeto
                     if (!oldCache[project.id]) {
                         console.log('Novo');
-                        const message = this.prepareMessage(project, versions[0], 'Novo');
+                        const message = this.prepareMessage(project, versions[0], 'New');
                         await this.sendDiscord(message); 
                     }
                     
@@ -108,11 +116,11 @@ class ProjectService {
     }
 
     prepareMessage(project, version, type) {
-        return `[${type}] New update of the modpack: ${project.title}\n
+        return `> [${type}] New update of the modpack: ${project.title}\n
 🆕 @everyone New version of the modpack: ${project.title}\n
-Version: ${version.version_number}\n
-Changelog: ${version.changelog}\n
-URL: https://modrinth.com/modpack/${project.slug}`;
+**Version**: ${version.version_number}\n
+**Changelog**:\n${version.changelog}\n
+URL: [Download NOW the new version of the modpack!](https://modrinth.com/modpack/${project.slug})`;
     }   
     
 }
