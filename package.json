@@ -1,5 +1,5 @@
 {
-  "name": "robo-modrinth",
+  "name": "bot-modrinth",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Bot modrinth",
   "dependencies": {
     "axios": "^0.27.2",
     "cors": "^2.8.5",
