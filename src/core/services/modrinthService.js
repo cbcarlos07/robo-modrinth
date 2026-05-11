@@ -21,7 +21,7 @@ class ProjectService {
     getDataFromProject(project) {
         return new Promise(async (resolve, reject) => {
             const res = await httpModrinth.get(
-                `/projects/${project}`
+                `/project/${project}`
             );
             resolve(res.data);
         })
