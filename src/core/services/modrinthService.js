@@ -136,7 +136,7 @@ class ProjectService {
                 //         await discordService.sendDiscord(message); 
                 //     }
                 // }
-                console.log('newCache', newCache);
+                
                 saveCache(newCache);
                 
                 resolve(newCache)
