@@ -158,7 +158,7 @@ class ProjectService {
 ${version.changelog}
 URL: [Download NOW the new version of the modpack!](https://modrinth.com/modpack/${project.slug})` 
 : `**[${type}]** New update of the modpack: ${project.title}
-🆕 @everyone 
+🔴 @everyone 
 URL: [Download NOW the new version of the modpack!](https://modrinth.com/modpack/${project.slug})`;
 
     }   
