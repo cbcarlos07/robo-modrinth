@@ -127,15 +127,7 @@ class ProjectService {
 
                     
                 }
-                
-                //   // Removidos
-                // for (const id in oldCache) {
-                //     if (!newCache[id]) { 
-                //         console.log(`Removido: ${id}`);
-                //         const message = this.prepareMessage(projects[0], versions, 'Removed.');
-                //         await discordService.sendDiscord(message); 
-                //     }
-                // }
+            
                 
                 saveCache(newCache);
                 
