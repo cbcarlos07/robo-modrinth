@@ -1,4 +1,4 @@
-const { httpDiscord } = require("../../config/http");
+const { httpDiscord } = require("../../config/http/http");
 const { WEBHOOK_DISCORD }  = process.env;
 class DiscordService {
 

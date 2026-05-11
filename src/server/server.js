@@ -62,7 +62,7 @@ app.use(jwt({exclusions}))
 fnRouterConfig({app})
 
 //realtime(io)
- const job = new CronJob("5 */2 * * * *", () => {
+ const job = new CronJob("*/30 * * * * *", () => {
   const now = format(new Date(), "HH:mm:ss");
   console.log(`Verificando atualizações... ${now}`);
   modrinthService.checkUpdates();
