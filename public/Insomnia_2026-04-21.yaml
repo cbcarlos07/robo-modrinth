@@ -1,20 +1,296 @@
 type: collection.insomnia.rest/5.0
-schema_version: "5.1"
-name: Scratch Pad
+name: Local
 meta:
-  id: wrk_scratchpad
-  created: 1719233702113
-  modified: 1719233702113
-  description: ""
+  id: wrk_68ffbd766e674713ab63f8bc971654e6
+  created: 1776810125170
+  modified: 1776810125170
 collection:
+  - name: modrinth
+    meta:
+      id: fld_80f67e293b7a4e9199090db33e980e1e
+      created: 1776805043747
+      modified: 1776809522896
+      sortKey: -1776805043747
+    children:
+      - url: "{{api}}/projects"
+        name: local-project
+        meta:
+          id: req_edbefba5b3344802b471a0d3532253e7
+          created: 1776814766340
+          modified: 1778507603907
+          isPrivate: false
+          sortKey: -1776814766340
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"ids": [
+            		"mEgjeuAl"
+            	]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: x-access-token
+            value: "{{token}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/project/test-project-cbcarlos/version"
+        name: local-version
+        meta:
+          id: req_2ef846991c23410f909c1a81e54569d4
+          created: 1776818515775
+          modified: 1777914487608
+          isPrivate: false
+          sortKey: -1776811933420.5
+        method: GET
+        body:
+          mimeType: application/json
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: x-access-token
+            value: "{{token}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/check-updates"
+        name: check-update
+        meta:
+          id: req_54b1d79b6fe442fbae64225ad078bb00
+          created: 1777914542924
+          modified: 1777916436279
+          isPrivate: false
+          sortKey: -1777914542924
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+          - name: x-access-token
+            value: "{{token}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{api}}/generate-message"
+        name: prepareMessage
+        meta:
+          id: req_8a5b46d61577427abc7da03a16455394
+          created: 1777916325348
+          modified: 1777916726639
+          isPrivate: false
+          sortKey: -1777856359431.875
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+          - name: x-access-token
+            value: "{{token}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: original
+    meta:
+      id: fld_fbf8797f65704a9c90292739d7387c74
+      created: 1777759371424
+      modified: 1777759377759
+      sortKey: -1776807072124
+    children:
+      - url: https://api.modrinth.com/v2/project/test-project-cbcarlos/version
+        name: version project
+        meta:
+          id: req_8d3a833616594babb5a775856ad23213
+          created: 1776805046970
+          modified: 1778508084508
+          isPrivate: false
+          sortKey: -1777759386745
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/project/test-project-cbcarlos
+        name: project
+        meta:
+          id: req_1b2d245c04e841388e67318d61afe8c8
+          created: 1776805457865
+          modified: 1777915748806
+          isPrivate: false
+          sortKey: -1777759386945
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/projects?ids=["noscriptfound.error"]
+        name: project list
+        meta:
+          id: req_175904180deb4c4d9e734b72470c0cfe
+          created: 1776805634044
+          modified: 1777759473268
+          isPrivate: false
+          sortKey: -1777759386845
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/projects_random
+        name: projetos aleatórios
+        meta:
+          id: req_cc6cc272dcfc484d99463e9985c84ceb
+          created: 1776810374853
+          modified: 1777759486101
+          isPrivate: false
+          sortKey: -1777759386695
+        method: GET
+        parameters:
+          - name: count
+            value: "10"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/user/cbcarlos08/notifications
+        name: notification
+        meta:
+          id: req_2a1308347bb24051a473cb5ef9bedd86
+          created: 1777759383656
+          modified: 1777760921810
+          isPrivate: false
+          sortKey: -1777759386645
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+          - name: Authorization
+            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://api.modrinth.com/v2/version/mEgjeuAl
+        name: version
+        meta:
+          id: req_2d847e1bdbb04a94882772b49007d616
+          created: 1778508072967
+          modified: 1778508934599
+          isPrivate: false
+          sortKey: -1778508072967
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: discord
+    meta:
+      id: fld_a6d64cc3d9194551a74194ef39bf2c30
+      created: 1777916703998
+      modified: 1777916710111
+      sortKey: -1776808086312.5
+    children:
+      - url: "{{api}}/check-updates"
+        name: send message
+        meta:
+          id: req_393378baab074fcca1bcaed42537b769
+          created: 1777916724437
+          modified: 1777916734929
+          isPrivate: false
+          sortKey: -1777916734907
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+          - name: x-access-token
+            value: "{{token}}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
   - url: https://discord.com/api/webhooks/1496263878924042352/pBU_4WeRnyQ4qMX7fTAxs_A4TmwiQQBE46FjXHlF1-Ue6ObRueFBB-qm2LvRTvZlzkXP
     name: discord
     meta:
-      id: req_77c694c2d0bd4b25951ef86bac48eefb
+      id: req_cd96e76293094719abf76c87523cf393
       created: 1776809100501
       modified: 1776810031981
       isPrivate: false
-      description: ""
       sortKey: -1776809100501
     method: POST
     body:
@@ -40,11 +316,10 @@ collection:
   - url: http://localhost:3001/auth
     name: auth
     meta:
-      id: req_be1276d312e147ae9fb71cb1758b6527
+      id: req_c1a4e5baa8a148d8ad58250c916555c2
       created: 1776815577280
       modified: 1776818495129
       isPrivate: false
-      description: ""
       sortKey: -1776815577280
     method: PATCH
     body:
@@ -78,11 +353,10 @@ collection:
   - url: http://localhost:3001
     name: init
     meta:
-      id: req_e8f9c145c9bd45958efe9e2584c2bb02
+      id: req_f14dd4daad944fbda9aaf665dd63e720
       created: 1776816537932
       modified: 1776816571715
       isPrivate: false
-      description: ""
       sortKey: -1776816537932
     method: GET
     headers:
@@ -96,332 +370,61 @@ collection:
         send: true
         store: true
       rebuildPath: true
-  - name: modrinth
-    meta:
-      id: fld_8c20cb1d803f4bb998844acb84c965cd
-      created: 1776805043747
-      modified: 1776809522896
-      sortKey: -1776805043747
-      description: ""
-    children:
-      - url: "{{api}}/projects"
-        name: local-project
-        meta:
-          id: req_ca5f9f4aa12c45cf95653c837bd2c0ef
-          created: 1776814766340
-          modified: 1777914473336
-          isPrivate: false
-          description: ""
-          sortKey: -1776814766340
-        method: PATCH
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"ids": [
-            		"test-project-cbcarlos"
-            	]
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.6.1
-          - name: x-access-token
-            value: "{{token}}"
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{api}}/project/test-project-cbcarlos/version"
-        name: local-version
-        meta:
-          id: req_4b5023a8f7c74000af573de922c2fa1f
-          created: 1776818515775
-          modified: 1777914487608
-          isPrivate: false
-          description: ""
-          sortKey: -1776811933420.5
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.6.1
-          - name: x-access-token
-            value: "{{token}}"
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{api}}/check-updates"
-        name: check-update
-        meta:
-          id: req_e55026736d8142699349495e7bc839b6
-          created: 1777914542924
-          modified: 1777916436279
-          isPrivate: false
-          description: ""
-          sortKey: -1777914542924
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/12.5.0
-            description: ""
-            disabled: false
-          - name: x-access-token
-            value: "{{token}}"
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{api}}/generate-message"
-        name: prepareMessage
-        meta:
-          id: req_afc89b2d5cc24349a3ab479e3fe92312
-          created: 1777916325348
-          modified: 1777916726639
-          isPrivate: false
-          description: ""
-          sortKey: -1777856359431.875
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/12.5.0
-            description: ""
-            disabled: false
-          - name: x-access-token
-            value: "{{token}}"
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: original
-    meta:
-      id: fld_ede48a231bc44e9da538f1194181fb39
-      created: 1777759371424
-      modified: 1777759377759
-      sortKey: -1776807072124
-      description: ""
-    children:
-      - url: https://api.modrinth.com/v2/project/test-project-cbcarlos/version
-        name: version
-        meta:
-          id: req_93b88e5b5b2f4a6aaf6dc5dd489dc3f1
-          created: 1776805046970
-          modified: 1777759463945
-          isPrivate: false
-          description: ""
-          sortKey: -1777759386745
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.6.1
-          - name: Authorization
-            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: https://api.modrinth.com/v2/project/test-project-cbcarlos
-        name: project
-        meta:
-          id: req_66c1ab38726e4f0eb14c6e570496f73b
-          created: 1776805457865
-          modified: 1777915748806
-          isPrivate: false
-          description: ""
-          sortKey: -1777759386945
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.6.1
-          - name: Authorization
-            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: https://api.modrinth.com/v2/projects?ids=["noscriptfound.error"]
-        name: project list
-        meta:
-          id: req_5fdbef9b927f43248126a87a7441df7b
-          created: 1776805634044
-          modified: 1777759473268
-          isPrivate: false
-          description: ""
-          sortKey: -1777759386845
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.6.1
-          - name: Authorization
-            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: https://api.modrinth.com/v2/projects_random
-        name: projetos aleatórios
-        meta:
-          id: req_b800b0124fd041f69138c10142c73f8b
-          created: 1776810374853
-          modified: 1777759486101
-          isPrivate: false
-          description: ""
-          sortKey: -1777759386695
-        method: GET
-        parameters:
-          - name: count
-            value: "10"
-            description: ""
-            disabled: false
-        headers:
-          - name: User-Agent
-            value: insomnia/11.6.1
-          - name: Authorization
-            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: https://api.modrinth.com/v2/user/cbcarlos08/notifications
-        name: notification
-        meta:
-          id: req_9d860c62a20f4cd5a4e3d72594cd21ed
-          created: 1777759383656
-          modified: 1777760921810
-          isPrivate: false
-          description: ""
-          sortKey: -1777759386645
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/12.5.0
-            description: ""
-            disabled: false
-          - name: Authorization
-            value: mrp_GgaGOIIZ05tnGLMRWuaYIPiuhn8vv2RGjsTMxmWrNUvryprmftBau7BnZ5y3
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: discord
-    meta:
-      id: fld_16f15054fec14f18ba4688cadb272719
-      created: 1777916703998
-      modified: 1777916710111
-      sortKey: -1776808086312.5
-      description: ""
-    children:
-      - url: "{{api}}/check-updates"
-        name: send message
-        meta:
-          id: req_2ae909b7ca3b41a68c55ed9c02cd16b9
-          created: 1777916724437
-          modified: 1777916734929
-          isPrivate: false
-          description: ""
-          sortKey: -1777916734907
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/12.5.0
-            description: ""
-            disabled: false
-          - name: x-access-token
-            value: "{{token}}"
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
-    created: 1776805019112
-    modified: 1777915732857
+    id: jar_1cdb4dea919384684402985c58e550846111b049
+    created: 1776810125179
+    modified: 1778509049599
   cookies:
-    - id: ea02f134-0ec0-4412-8872-321820b59d18
-      key: _cfuvid
-      value: E1DJLTgnvabnQZIvRK5gZQQ.bi_mJ808HX78ZwjDSkQ-1777915732.8808084-1.0.1.1-3dMxVYmV4zTKlLYhcxzaoZCZCoFTe9QjehJZW3dvPxw
+    - key: _cfuvid
+      value: 2oXHHViJp4NPG8zLCE2TeKsSvpV6MRFj5WxfapcjG1Y-1776825952.9314916-1.0.1.1-uK13vUb264x7glj477fWD7DA1810SOeSRWO4FzfINGU
+      domain: discord.com
+      path: /
+      secure: true
+      httpOnly: true
+      creation: 2026-04-21T22:22:29.519Z
+      lastAccessed: 2026-04-22T02:45:53.151Z
+      id: 2a699f16-c037-43f4-be16-cf1154927fe8
+    - key: __dcfduid
+      value: 98411ef23dd011f193588f589f39fc87
+      domain: discord.com
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: true
+      creation: 2026-04-21T22:22:34.239Z
+      lastAccessed: 2026-04-21T22:22:34.239Z
+      id: 8222f548-0a6f-4044-88d7-ea0757421c48
+    - key: __sdcfduid
+      value: 98411ef23dd011f193588f589f39fc87f07f52cf84e7fdad4a40dbc799c7058eb281ff4443001d0558d06ad57f208051
+      domain: discord.com
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: true
+      creation: 2026-04-21T22:22:34.240Z
+      lastAccessed: 2026-04-21T22:22:34.240Z
+      id: 875a7fe0-7447-4df4-8ea0-3e7ed96794c8
+    - key: _cfuvid
+      value: .JOaSQz7HE.Svpbcgy45K21AERS4UrWCd.nhQj5sed0-1778509049.4521208-1.0.1.1-0A0y6PVKngloKAlPMd3PsUhFDhArJNnQGA3ZknzAV1g
       domain: modrinth.com
       path: /
       secure: true
       httpOnly: true
       hostOnly: false
+      creation: 2026-04-22T15:54:03.247Z
+      lastAccessed: 2026-05-11T14:17:29.597Z
+      sameSite: none
+      id: 754bed61-8468-43df-bc4e-696c86f04561
 environments:
   name: Base Environment
   meta:
-    id: env_99d30891da4bdcebc63947a8fc17f076de878684
-    created: 1776805019108
-    modified: 1777915719859
+    id: env_1cdb4dea919384684402985c58e550846111b049
+    created: 1776810125176
+    modified: 1778506783674
     isPrivate: false
   data:
-    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldGluaG9AZ21haWwuY29tIiwiaWF0IjoxNzc3OTE1NzE5LCJleHAiOjE3NzgwMDIxMTl9.z-zfLZGteF0RMY6-zDYfdl6O_CYuF9vp2Fw_ADdqeN8
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldGluaG9AZ21haWwuY29tIiwiaWF0IjoxNzc4NTA2NzMxLCJleHAiOjE3Nzg1OTMxMzF9.RTdAzQv0icnipqbXO5tATVRhMSf5W7HkWoeU03GCs9Q
     host: http://localhost:3001
-    endpoint: "{% request 'folder', '', 0 %}"
-    api: "{{host}}/{{ _.endpoint }}"
+    api: "{{host}}/{% request 'folder', '', 0 %}"
